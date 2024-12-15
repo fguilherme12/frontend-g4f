@@ -21,12 +21,13 @@ const ZipCodeForm = ({ onSearch }: ZipCodeFormProps) => {
       <label htmlFor="zipCode">CEP:</label>
       <input
         id="zipCode"
+        name="zipCode"
         type="text"
         value={zipCode}
         onChange={(e) => setZipCode(e.target.value)}
         placeholder="Digite o CEP"
       />
-      <button type="submit">Buscar</button>
+      <button data-cy="submit-zipcode" type="submit">Buscar</button>
     </form>
   );
 };
