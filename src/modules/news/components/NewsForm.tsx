@@ -23,23 +23,25 @@ const NewsForm: React.FC<NewsFormProps> = ({ initialData, onSubmit, onCancel }) 
         <label>Titulo</label>
         <input
           type="text"
+          name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
       </div>
       <div>
-        <label>Description</label>
+        <label>Descrição</label>
         <input
           type="text"
+          name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         />
       </div>
-      <button type="submit">Salvar</button>
+      <button data-cy="submit-news" type="submit">Salvar</button>
       {onCancel && (
-        <button type="button" onClick={onCancel}>
+        <button data-cy="descarte-news" type="button" onClick={onCancel}>
           Descartar
         </button>
       )}

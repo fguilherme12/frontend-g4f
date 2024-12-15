@@ -67,6 +67,7 @@ const NewsPage: React.FC = () => {
               title: editingNews.title,
               description: editingNews.description,
             }}
+            onCancel={() => setIsCreating(false)}
           />
         </div>
       )}
@@ -77,8 +78,8 @@ const NewsPage: React.FC = () => {
             <li key={item.id}>
               <h2>{item.title}</h2>
               <p>{item.description}</p>
-              <button onClick={() => setEditingNews(item)}>Editar</button>
-              <button onClick={() => handleDelete(item.id)}>Deletar</button>
+              <button data-cy="edit-news"onClick={() => setEditingNews(item)}>Editar</button>
+              <button data-cy="delete-news" onClick={() => handleDelete(item.id)}>Deletar</button>
             </li>
           ))
         ) : (

@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes } from "react-router-dom";
-import SearchZipcode from "./modules/search-zipcode/pages/routers";
+import zipcodeRouter from "./modules/zipcode/pages/routers";
+import newsRouter from "./modules/news/pages";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {SearchZipcode}
+        {zipcodeRouter}
+        {newsRouter}
       </Routes>
     </BrowserRouter>
   );
