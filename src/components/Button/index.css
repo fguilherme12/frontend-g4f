@@ -1,0 +1,16 @@
+.zip-code-button {
+    padding: 10px 20px;
+    color: #fff;
+    background-color:  var(--color2);
+    border: 0.5px solid var(--color8);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .zip-code-button:hover {
+    background-color: var(--color4);
+    color: var(--color7);
+  }
+  

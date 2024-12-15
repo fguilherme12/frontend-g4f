@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./index.css";
+import Button from "../../../components/Button";
 
 type NewsFormProps = {
   initialData?: { title: string; description: string };
@@ -6,7 +8,11 @@ type NewsFormProps = {
   onCancel?: () => void;
 };
 
-const NewsForm: React.FC<NewsFormProps> = ({ initialData, onSubmit, onCancel }) => {
+const NewsForm: React.FC<NewsFormProps> = ({
+  initialData,
+  onSubmit,
+  onCancel,
+}) => {
   const [title, setTitle] = useState(initialData?.title || "");
   const [description, setDescription] = useState(
     initialData?.description || ""
@@ -18,10 +24,11 @@ const NewsForm: React.FC<NewsFormProps> = ({ initialData, onSubmit, onCancel }) 
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Titulo</label>
+    <form className="news-form-container" onSubmit={handleSubmit}>
+      <div className="news-form-field">
+        <label className="news-form-label">Título</label>
         <input
+          className="news-form-input"
           type="text"
           name="title"
           value={title}
@@ -29,9 +36,10 @@ const NewsForm: React.FC<NewsFormProps> = ({ initialData, onSubmit, onCancel }) 
           required
         />
       </div>
-      <div>
-        <label>Descrição</label>
+      <div className="news-form-field">
+        <label className="news-form-label">Descrição</label>
         <input
+          className="news-form-input"
           type="text"
           name="description"
           value={description}
@@ -39,11 +47,14 @@ const NewsForm: React.FC<NewsFormProps> = ({ initialData, onSubmit, onCancel }) 
           required
         />
       </div>
-      <button data-cy="submit-news" type="submit">Salvar</button>
+
+      <Button type="submit" dataCy="submit-news">
+        Salvar
+      </Button>
       {onCancel && (
-        <button data-cy="descarte-news" type="button" onClick={onCancel}>
+        <Button type="button" dataCy="descarte-news" onClick={onCancel}>
           Descartar
-        </button>
+        </Button>
       )}
     </form>
   );

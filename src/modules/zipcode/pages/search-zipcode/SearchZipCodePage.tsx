@@ -2,6 +2,7 @@ import { useState } from "react";
 import ZipCodeForm from "../../components/ZipCodeForm";
 import { fetchAddressByZipCode } from "../../services/ZipCodeService";
 import { IAddress } from "../../types/ZipCodeTypes";
+import "./index.css";
 
 const SearchZipCodePage = () => {
   const [address, setAddress] = useState<IAddress | null>(null);
@@ -29,12 +30,12 @@ const SearchZipCodePage = () => {
   };
 
   return (
-    <div>
-      <h1>Buscar Endereço por CEP</h1>
+    <div className="adress-container">
+      <h1 className="adress-title">Buscar Endereço por CEP</h1>
       <ZipCodeForm onSearch={handleSearch} />
       {error && <p style={{ color: "red" }}>{error}</p>}
       {address && (
-        <div>
+        <div className="address-card">
           <h2>Endereço:</h2>
           <ul>
             {Object.entries(address).map(([key, value]) => (
