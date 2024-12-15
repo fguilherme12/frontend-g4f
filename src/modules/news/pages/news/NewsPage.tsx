@@ -7,12 +7,13 @@ import {
   updateNews,
 } from "../../services/NewsService";
 import NewsForm from "../../components/NewsForm";
+import "./index.css";
+import Button from "../../../../components/Button";
 
 const NewsPage: React.FC = () => {
   const [news, setNews] = useState<News[]>([]);
-  const [editingNews, setEditingNews] = useState<News | null>(null);
   const [isCreating, setIsCreating] = useState(false);
-
+  const [editingId, setEditingId] = useState<number | null>(null);
   useEffect(() => {
     fetchNews();
   }, []);
@@ -28,12 +29,13 @@ const NewsPage: React.FC = () => {
     fetchNews();
   };
 
-  const handleUpdate = async (data: { title: string; description: string }) => {
-    if (editingNews) {
-      await updateNews(editingNews.id, data);
-      setEditingNews(null);
-      fetchNews();
-    }
+  const handleUpdate = async (
+    id: number,
+    data: { title: string; description: string }
+  ) => {
+    await updateNews(id, data);
+    setEditingId(null);
+    fetchNews();
   };
 
   const handleDelete = async (id: number) => {
@@ -42,44 +44,66 @@ const NewsPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Lista de Notícias</h1>
+    <div className="news-page-container">
+      <div className="news-page-header">
+        <h1 className="news-page-title">Gerenciador de Notícias</h1>
 
-      <button onClick={() => setIsCreating(true)}>Criar Nova Notícia</button>
+        <Button
+          type="button"
+          onClick={() => setIsCreating(true)}
+          dataCy="create-news"
+        >
+          Criar Nova Notícia
+        </Button>
+      </div>
 
       {isCreating && (
-        <div>
-          <h2>Criar Notícia</h2>
+        <div className="news-page-section">
+          <h2 className="news-page-section-subtitle">Criar Notícia</h2>
           <NewsForm
             onSubmit={handleCreate}
-            initialData={{ title: "", description: "" }}
             onCancel={() => setIsCreating(false)}
           />
         </div>
       )}
 
-      {editingNews && (
-        <div>
-          <h2>Editar Notícia</h2>
-          <NewsForm
-            onSubmit={handleUpdate}
-            initialData={{
-              title: editingNews.title,
-              description: editingNews.description,
-            }}
-            onCancel={() => setIsCreating(false)}
-          />
-        </div>
-      )}
+      <h1 className="news-page-subtitle">Lista de Notícias Cadastradas </h1>
 
-      <ul>
+      <ul className="news-page-list">
         {news.length > 0 ? (
           news.map((item) => (
-            <li key={item.id}>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <button data-cy="edit-news"onClick={() => setEditingNews(item)}>Editar</button>
-              <button data-cy="delete-news" onClick={() => handleDelete(item.id)}>Deletar</button>
+            <li key={item.id} className="news-page-list-item">
+              {editingId === item.id ? (
+                <NewsForm
+                  initialData={{
+                    title: item.title,
+                    description: item.description,
+                  }}
+                  onSubmit={(data) => handleUpdate(item.id, data)}
+                  onCancel={() => setEditingId(null)}
+                />
+              ) : (
+                <>
+                  <h2 className="news-page-list-item-title">{item.title}</h2>
+                  <p className="news-page-list-item-description">
+                    {item.description}
+                  </p>
+                  <Button
+                    type="button"
+                    onClick={() => setEditingId(item.id)}
+                    dataCy="edit-news"
+                  >
+                    Editar
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => handleDelete(item.id)}
+                    dataCy="delete-news"
+                  >
+                    Deletar
+                  </Button>
+                </>
+              )}
             </li>
           ))
         ) : (

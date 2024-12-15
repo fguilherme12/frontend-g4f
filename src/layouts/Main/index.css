@@ -9,7 +9,8 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  height: 80vh;
+  min-height: 80vh;
   max-width: 1280px;
   margin-top: 90px;
+  overflow-y: visible;
 }

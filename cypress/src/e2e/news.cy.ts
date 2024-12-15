@@ -42,7 +42,7 @@ describe("Gestão de Notícias", () => {
 
   context("Dado que o usuário deseja excluir uma notícia", () => {
     it("Quando ele confirma a exclusão, então a notícia não deve mais aparecer na lista", () => {
-      cy.get('[data-cy="delete-news"]').first().click();
+      cy.get('[data-cy="delete-news"]').last().click();
       cy.wait("@deleteNews");
 
       cy.contains("Notícia Teste").should("not.exist");
