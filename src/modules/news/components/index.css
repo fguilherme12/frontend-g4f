@@ -1,0 +1,29 @@
+.news-form-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.news-form-field {
+  margin-bottom: 15px;
+}
+
+.news-form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.news-form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.news-form-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+

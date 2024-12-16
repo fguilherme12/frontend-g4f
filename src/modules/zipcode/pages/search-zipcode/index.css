@@ -1,0 +1,45 @@
+.adress-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.adress-title {
+  color: var(--color6);
+  padding: 20px;
+}
+
+.address-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px auto;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.address-card h2 {
+  font-size: 24px;
+  color: var(--color6);
+  text-align: center;
+}
+
+.address-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.address-card li {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.address-card li strong {
+  color: #000;
+}
