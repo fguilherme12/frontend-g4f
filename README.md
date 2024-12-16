@@ -26,7 +26,7 @@ Um sistema completo para gerenciar notícias, que combina um frontend desenvolvi
 ### Passos para configurar e rodar localmente
 
 1. Clone este repositório:
-   git clone <URL_DO_REPOSITORIO>
+   git clone [<URL_DO_REPOSITORIO>](https://github.com/fguilherme12/frontend-g4f.git)
    cd projeto-g4f
 
 2. Instale as dependências:
@@ -39,7 +39,7 @@ Um sistema completo para gerenciar notícias, que combina um frontend desenvolvi
 
    - Iniciar o json-server:
 
-     json-server --watch db.json --port 3001
+     npx json-server --watch db.json --port 3001
 
 
 4. Acesse a aplicação em:
@@ -61,17 +61,29 @@ Um sistema completo para gerenciar notícias, que combina um frontend desenvolvi
 3. Acesse a aplicação em:
    http://localhost:5173
 
-4. O backend mockado estará disponível em:
+4. O backend estará disponível em:
    http://localhost:3001
 
 ---
+
+## Testes Automatizados
+
+Este projeto utiliza o framework **Cypress** para executar testes de integração (e2e).
+
+1. Inicialize a interface do Cypress:
+
+   npx cypress open
+
+2. Selecione qual navegador deseja utilizar e clique na opção "E2E Testing".
+
+3. Os testes disponíveis estão localizados na pasta cypress/src/e2e.
 
 ## Funcionalidades
 
 - **Gerenciamento de Notícias:**
   - Criar, editar e excluir notícias.
   - Visualizar lista de notícias.
-  - Backend mockado com json-server.
+  - Backend com json-server.
 
 - **Busca de CEPs:**
   - Consulta de CEPs utilizando a API externa de CEP no projeto backend (NestJS + ViaCEP).

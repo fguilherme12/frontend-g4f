@@ -14,7 +14,7 @@ const menuItems: IMenuItem[] = [
 
 export const Header = () => {
   return (
-    <div className="header-container">
+    <header className="header-container">
       <div className="header-content">
         <div className="logo">
           <img src="/logo.png" alt="logo-g4f" className="header-logo"/>
@@ -31,6 +31,6 @@ export const Header = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
