@@ -37,7 +37,7 @@ Um sistema completo para gerenciar notícias, que combina um frontend desenvolvi
 ### Passos para configurar e rodar localmente
 
 1. Clone este repositório:
-   git clone [<URL_DO_REPOSITORIO>](https://github.com/fguilherme12/frontend-g4f.git)
+   git clone [https://github.com/fguilherme12/backend-g4f](https://github.com/fguilherme12/frontend-g4f.git)
    cd projeto-g4f
 
 2. Instale as dependências:
