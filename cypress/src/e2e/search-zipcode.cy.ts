@@ -1,7 +1,7 @@
 describe("Busca de CEP", () => {
   beforeEach(() => {
     cy.intercept("GET", "**/cep/**").as("searchZipcode");
-    cy.visit("http://localhost:5173/search-zipcode");
+    cy.visit("http://localhost:5173");
   });
 
   context("Dado que o usuário acessa a página de busca de CEP", () => {
