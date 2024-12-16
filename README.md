@@ -6,6 +6,17 @@ Um sistema completo para gerenciar notícias, que combina um frontend desenvolvi
 **Repositório da API Externa para Consulta de CEPs:**
 - [Backend G4F (API Externa)](https://github.com/fguilherme12/backend-g4f)
 
+## Estrutura de pastas e arquivos
+
+   - A estrutura do projeto é organizada por módulos, que facilita a manutenção e desenvolvimento da aplicação.
+   - Os componentes reutilizaveis são centralizados em uma pasta específica.
+   - Pastas como layout (para o layout principal da aplicação) e core (para estilos globais) facilitam a criação, reutilização e organização das partes fundamentais do       projeto.
+   - Cada módulo é isolado em sua própria pasta, com subpastas específicas para:
+      - components: Componentes exclusivos do módulo.
+      - pages: Páginas e rotas específicas do módulo.
+      - services: Lógica de negócio e chamadas a APIs.
+      - types: Definição de tipos (em TypeScript) usados no módulo.
+
 ## Tecnologias Principais
 - **React**: Framework para a criação do frontend.
 - **json-server**: Simulador de backend para operações CRUD.
