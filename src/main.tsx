@@ -2,7 +2,7 @@ import './core/styles/index.css'
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import AppRoutes from './AppRoutes.tsx'
+import AppRoutes from './AppRoutes'
 
 
 
